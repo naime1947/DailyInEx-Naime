@@ -45,5 +45,22 @@ namespace DailyInEx.Controllers
             }
             return View();
         }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(string email, string password)
+        {
+            bool isLoginValied = RegistrationProcessor.ValidateLogin(email, password);
+            if (isLoginValied)
+            {
+                return RedirectToAction("Index");
+            }
+            ViewBag.ErrorMassage = "Login Invalid";
+            return View();
+        }
     }
 }

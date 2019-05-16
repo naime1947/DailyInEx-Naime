@@ -2,6 +2,7 @@
 using DataLibrary.DataAccess;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,5 +32,20 @@ namespace DataLibrary.BusinessLogic
                             Values(@CompanyName,@CompanyEmail,@Password,@Address,@CountryId)";
             return SqlDataAccess.SaveData<Company>(sql,data);
         }
+
+        public static bool ValidateLogin(string email, string password)
+        {
+            string sql = "Select * from Company";
+            List<Company> companies =  SqlDataAccess.LoadData<Company>(sql);
+            foreach (Company company in companies)
+            {
+                if(company.CompanyEmail==email && company.Password == password)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 }
