@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DailyInEx.Models;
+using DataLibrary.BusinessLogic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -24,6 +26,23 @@ namespace DailyInEx.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        public ActionResult Register()
+        {
+            ViewBag.Countries = RegistrationProcessor.LoadCounries();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(CompanyModel company)
+        {
+            int rowAffected = RegistrationProcessor.SaveCompany(company.CompanyName, company.CompanyEmail, company.Password, company.Address, company.CountryId);
+            if (rowAffected > 0)
+            {
+                return RedirectToAction("Index");
+            }
             return View();
         }
     }
