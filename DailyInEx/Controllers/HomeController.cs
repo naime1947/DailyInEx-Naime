@@ -29,38 +29,6 @@ namespace DailyInEx.Controllers
             return View();
         }
 
-        public ActionResult Register()
-        {
-            ViewBag.Countries = RegistrationProcessor.LoadCounries();
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Register(CompanyModel company)
-        {
-            int rowAffected = RegistrationProcessor.SaveCompany(company.CompanyName, company.CompanyEmail, company.Password, company.Address, company.CountryId);
-            if (rowAffected > 0)
-            {
-                return RedirectToAction("Index");
-            }
-            return View();
-        }
-
-        public ActionResult Login()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Login(string email, string password)
-        {
-            bool isLoginValied = RegistrationProcessor.ValidateLogin(email, password);
-            if (isLoginValied)
-            {
-                return RedirectToAction("Index");
-            }
-            ViewBag.ErrorMassage = "Login Invalid";
-            return View();
-        }
+        
     }
 }
