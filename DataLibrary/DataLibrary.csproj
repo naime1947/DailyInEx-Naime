@@ -45,9 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\IncomeExpensesProcessor.cs" />
     <Compile Include="BusinessLogic\RegistrationProcessor.cs" />
+    <Compile Include="BusinessModel\Bank.cs" />
     <Compile Include="BusinessModel\Company.cs" />
     <Compile Include="BusinessModel\Country.cs" />
+    <Compile Include="BusinessModel\Income.cs" />
     <Compile Include="DataAccess\SqlDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

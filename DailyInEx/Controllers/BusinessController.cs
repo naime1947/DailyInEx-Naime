@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DailyInEx.Models;
+using DataLibrary.BusinessLogic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,12 +18,20 @@ namespace DailyInEx.Controllers
 
         public ActionResult IncomeEntry()
         {
+            
+            ViewBag.Banks = IncomeExpensesProcessor.LoadBanks();
             return View();
         }
 
         [HttpPost]
-        public ActionResult IncomeEntry()
+        public ActionResult IncomeEntry(IncomeModel income)
         {
+            bool isSaved = IncomeExpensesProcessor.SaveIncome(income.Amount, income.Cash, income.Cheque, income.ChequeNo, income.BankId, income.Particular, income.Date);
+            if (isSaved)
+            {
+                ViewBag.Massage = "Income Saved Successfully";
+            }
+            ViewBag.Banks = IncomeExpensesProcessor.LoadBanks();
             return View();
         }
     }
