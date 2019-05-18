@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataLibrary.BusinessModel
 {
-    public class Income
+   public class Expense
     {
         public int Id { get; set; }
         public double Amount { get; set; }
@@ -15,7 +15,6 @@ namespace DataLibrary.BusinessModel
         public string ChequeNo { get; set; }
         public int? BankId { get; set; }
         public string Particular { get; set; }
-        public DateTime Date { get; set; }
-        
+        public DateTime Date { get; set; }       
     }
 }

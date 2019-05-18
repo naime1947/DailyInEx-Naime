@@ -43,6 +43,33 @@ namespace DataLibrary.BusinessLogic
             }
             return false;
         }
+
+        public static bool SaveExpense(double amount, bool cash, bool cheque, string chequeNo, int bankId, string particular, DateTime date)
+        {
+            Expense data = new Expense
+            {
+                Amount = amount,
+                Cash = cash,
+                Cheque = cheque,
+                ChequeNo = chequeNo,
+                BankId = (int)bankId,
+                Particular = particular,
+                Date = date
+            };
+            if (data.BankId == 0)
+            {
+                data.BankId = null;
+            }
+
+            string sql = @"Insert into Expense(amount, cash, cheque, chequeNo, bankId, particular, date)
+                        Values(@Amount, @Cash, @Cheque, @ChequeNo, @BankId, @Particular, @Date)";
+            int rowAffected = SqlDataAccess.SaveData(sql, data);
+            if (rowAffected > 0)
+            {
+                return true;
+            }
+            return false;
+        }
         
     }
 }

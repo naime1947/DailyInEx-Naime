@@ -38,5 +38,30 @@ namespace DailyInEx.Controllers
             ViewBag.Banks = IncomeExpensesProcessor.LoadBanks();
             return View();
         }
+
+
+
+        public ActionResult ExpenseEntry()
+        {
+            ViewBag.Banks = IncomeExpensesProcessor.LoadBanks();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ExpenseEntry(ExpenseModel expense)
+        {
+            bool isSaved = IncomeExpensesProcessor.SaveExpense(expense.Amount, expense.Cash, expense.Cheque, expense.ChequeNo, expense.BankId, expense.Particular, expense.Date);
+            if (isSaved)
+            {
+                ViewBag.Massage = "Expense Saved Successfully";
+            }
+            else
+            {
+                ViewBag.Massage = "Sorry Expense couldn't save";
+            }
+            ViewBag.Banks = IncomeExpensesProcessor.LoadBanks();
+            return View();
+        }
+
     }
 }

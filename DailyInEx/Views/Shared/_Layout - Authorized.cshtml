@@ -32,7 +32,8 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Income Entry", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Income Entry", "IncomeEntry", "Business")</li>
+                            <li>@Html.ActionLink("Pending Incomes", "ApproveIncome", "ApproveInEX")</li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -41,7 +42,8 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Expenses Entry", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Expenses Entry", "ExpenseEntry", "Business")</li>
+                            <li>@Html.ActionLink("Pending Expenses", "ApproveExpense", "ApproveInEX")</li>
                         </ul>
                     </li>
                     

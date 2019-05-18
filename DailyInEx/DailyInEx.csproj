@@ -120,6 +120,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ApproveInExController.cs" />
     <Compile Include="Controllers\AuthorizeController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="Models\BankModel.cs" />
     <Compile Include="Models\CompanyModel.cs" />
     <Compile Include="Models\CountryModel.cs" />
+    <Compile Include="Models\ExpenseModel.cs" />
     <Compile Include="Models\IncomeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -215,6 +217,8 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Business\ExpenseEntry.cshtml" />
+    <Content Include="Views\ApproveInEx\ApproveIncome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
