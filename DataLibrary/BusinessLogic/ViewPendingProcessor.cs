@@ -15,5 +15,11 @@ namespace DataLibrary.BusinessLogic
             string sql = @"select id, amount, cash, cheque, chequeno, bankid, particular, date from income where Isapproved is null";
             return SqlDataAccess.LoadData<Income>(sql);
         }
+
+        public static List<Expense> LoadExpeses()
+        {
+            string sql = @"select id, amount, cash, cheque, chequeno, bankid, particular, date from expense where Isapproved is null";
+            return SqlDataAccess.LoadData<Expense>(sql);
+        }
     }
 }

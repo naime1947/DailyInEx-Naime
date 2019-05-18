@@ -18,5 +18,15 @@ namespace DataLibrary.BusinessLogic
             }
             return true;
         }
+
+        public static bool ApproveExpense(List<int> approvedId)
+        {
+            foreach (int id in approvedId)
+            {
+                string sql = "Update expense set isApproved = 1 where id =" + id;
+                SqlDataAccess.UpdateData(sql);
+            }
+            return true;
+        }
     }
 }

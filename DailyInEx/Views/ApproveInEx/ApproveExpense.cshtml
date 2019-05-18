@@ -1,13 +1,13 @@
 ﻿
 @{
-    ViewBag.Title = "ApproveIncome";
+    ViewBag.Title = "ApproveExpense";
     Layout = "~/Views/Shared/_Layout - Authorized.cshtml";
 }
 
-<h3 class="card-subtitle">Pending Incomes for Approval</h3>
+<h3 class="card-subtitle">Pending Expenses for Approval</h3>
 <form method="post">
     <table class="table table-striped">
-        <thead class="thead-light">
+        <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Approve</th>
@@ -20,7 +20,7 @@
         <tbody>
             @{
                 int i = 1;
-                foreach (DataLibrary.BusinessModel.Income data in ViewBag.Incomes)
+                foreach (DataLibrary.BusinessModel.Expense data in ViewBag.Expenses)
                 {
                     <tr>
                         <th scope="row">@i</th>

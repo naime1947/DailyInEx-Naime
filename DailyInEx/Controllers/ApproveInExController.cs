@@ -39,5 +39,28 @@ namespace DailyInEx.Controllers
             ViewBag.Incomes = ViewPendingProcessor.LoadIncomes();
             return View();
         }
+
+        public ActionResult ApproveExpense()
+        {
+            ViewBag.Expenses = ViewPendingProcessor.LoadExpeses();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ApproveExpense(FormCollection data)
+        {
+            List<int> approvedIds = new List<int>();
+
+            var arr = data[0].ToString().Split(',');
+
+            foreach (string id in arr)
+            {
+                approvedIds.Add(Convert.ToInt32(id));
+            }
+
+            ApproveProcessor.ApproveExpense(approvedIds);
+            ViewBag.Expenses = ViewPendingProcessor.LoadExpeses();
+            return View();
+        }
     }
 }

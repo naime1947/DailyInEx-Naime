@@ -124,6 +124,7 @@
     <Compile Include="Controllers\AuthorizeController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -219,6 +220,8 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Business\ExpenseEntry.cshtml" />
     <Content Include="Views\ApproveInEx\ApproveIncome.cshtml" />
+    <Content Include="Views\ApproveInEx\ApproveExpense.cshtml" />
+    <Content Include="Views\Report\IncomeMonthly.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

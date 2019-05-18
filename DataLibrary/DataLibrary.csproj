@@ -48,6 +48,7 @@
     <Compile Include="BusinessLogic\ApproveProcessor.cs" />
     <Compile Include="BusinessLogic\IncomeExpensesProcessor.cs" />
     <Compile Include="BusinessLogic\RegistrationProcessor.cs" />
+    <Compile Include="BusinessLogic\ReportProcessor.cs" />
     <Compile Include="BusinessLogic\ViewPendingProcessor.cs" />
     <Compile Include="BusinessModel\Bank.cs" />
     <Compile Include="BusinessModel\Company.cs" />
