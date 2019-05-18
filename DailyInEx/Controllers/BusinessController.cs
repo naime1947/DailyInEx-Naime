@@ -31,6 +31,10 @@ namespace DailyInEx.Controllers
             {
                 ViewBag.Massage = "Income Saved Successfully";
             }
+            else
+            {
+                ViewBag.Massage = "Sorry Income couldn't save";
+            }
             ViewBag.Banks = IncomeExpensesProcessor.LoadBanks();
             return View();
         }

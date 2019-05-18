@@ -7,20 +7,20 @@
 <h2>IncomeEntry</h2>
 <div>
     <form method="post">
-        <div class="form-group">
+        <div class="form-group ">
             <label for="Amount">Amount</label>
             <input type="text" class="form-control" id="Amount" name="Amount" required>
         </div>
-        <div class="form-group">
+        <div class="form-group ">
             <label class="radio-inline"><input type="radio" name="AmountType" id="Cash" value="0" checked>Cash</label>
             <label class="radio-inline"><input type="radio" name="AmountType" id="Cheque" value="1">Cheque</label>
         </div>
         <fieldset id="chequeFileds" disabled>
-            <div class="form-group">
+            <div class="form-group ">
                 <label for="ChequeNo">Cheque No:</label>
                 <input type="text" class="form-control" id="ChequeNo" name="ChequeNo" required>
             </div>
-            <div class="form-group">
+            <div class="form-group ">
                 <label for="BankId">Bank</label>
                 <select class="form-control text-center" id="BankId" name="BankId" required>
                     <option selected value="">--Select--</option>
@@ -32,18 +32,18 @@
             </div>
         </fieldset>
 
-        <div class="form-group">
+        <div class="form-group ">
             <label for="Particular">Perticuler</label>
             <input type="text" class="form-control" id="Particular" name="Particular">
         </div>
 
-        <div class="form-group">
+        <div class="form-group ">
             <label for="Date">Date</label>
             <input type="date" class="form-control" id="Date" name="Date" placeholder="MM/DD/YYYY" required>
         </div>
         <div class="form-group">
             <input role="button" class="btn-success btn-lg btn-block" type="submit" value="Save" />
-            <label class="text-success">@ViewBag.Massage</label>
+            <label class="alert" id="massage">@ViewBag.Massage</label>
         </div>
     </form>
 </div>
@@ -53,10 +53,13 @@
 
 
 @section scripts{
-
     <script language="Javascript">
         $("#Cash").click(function () { $("#chequeFileds").prop("disabled", true); });
         $("#Cheque").click(function () { $("#chequeFileds").prop("disabled", false); });
+
+        setTimeout(function () {
+            $('#massage').fadeOut('fast');
+        }, 5000);
     </script>
 }
 
