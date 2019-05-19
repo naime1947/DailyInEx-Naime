@@ -45,9 +45,12 @@
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Expenses Entry", "ExpenseEntry", "Business")</li>
                             <li>@Html.ActionLink("Pending Expenses", "ApproveExpense", "ApproveInEX")</li>
+                            <li>@Html.ActionLink("Monthly Expense Report", "ExpenseMonthly", "Report")</li>
+
                         </ul>
                     </li>
-                    
+                    <li>@Html.ActionLink("View Yearly Report", "YearlyReport", "Report")</li>
+
                 </ul>
                 <div class="nav navbar-nav navbar-right">
                     <a href="" class="navbar-brand">Hello @Session["user"]</a>

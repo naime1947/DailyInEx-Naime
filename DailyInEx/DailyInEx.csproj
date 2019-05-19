@@ -222,6 +222,8 @@
     <Content Include="Views\ApproveInEx\ApproveIncome.cshtml" />
     <Content Include="Views\ApproveInEx\ApproveExpense.cshtml" />
     <Content Include="Views\Report\IncomeMonthly.cshtml" />
+    <Content Include="Views\Report\ExpenseMonthly.cshtml" />
+    <Content Include="Views\Report\YearlyReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "YearlyReport";
+    Layout = "~/Views/Shared/_Layout - Authorized.cshtml";
+}
+
+<h3 class="card-subtitle">View Yearly Report</h3>
+
+<form class="form-inline">
+    <div class="form-group mb-4">
+        <label class="col-form-label" for="year">Year</label>
+        <select id="year" name="year" class="form-control" required>
+            <option selected value="">Choose...</option>
+            @foreach (int year in ViewBag.ListOfYear)
+            {
+                <option name="year" value="@year">@year</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class=" form-control btn btn-primary mb-4">Show</button>
+</form>
+
+@{
+    if (ViewBag.Report != null)
+    {
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Month</th>
+                        <th scope="col">Income</th>
+                        <th scope="col">Expense</th>
+                        <th scope="col">Profit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int i = 1;
+                        double TotalIncome = 0;
+                        double TotalExpense = 0;
+                        double TotalProfit =0;
+                        foreach (DataLibrary.BusinessModel.ViewModel.YearlyInExView data in ViewBag.Report)
+                        {
+                            <tr>
+                                <th scope="row">@i</th>
+                                <td>@data.Month</td>
+                                <td>@data.MonthlyIncome</td>
+                                <td>@data.MonthlyExpense</td>
+                                <td>@data.GetMonthlyProfit()</td>
+                            </tr>
+                            i++;
+                            TotalIncome += data.MonthlyIncome;
+                            TotalExpense += data.MonthlyExpense;
+                            TotalProfit += data.GetMonthlyProfit();
+                        }
+                            <tr class="text-black-50">
+                                <td colspan="2" style="text-align:center"> Total : </td>
+                                <td>@TotalIncome</td>
+                                <td>@TotalExpense</td>
+                                <td>@TotalProfit</td>
+
+                            </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+}
+

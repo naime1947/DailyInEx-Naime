@@ -1,10 +1,10 @@
 ﻿
 @{
-    ViewBag.Title = "IncomeMonthly";
+    ViewBag.Title = "ExpenseMonthly";
     Layout = "~/Views/Shared/_Layout - Authorized.cshtml";
 }
 
-<h3 class="card-subtitle">View Montly Income</h3>
+<h3 class="card-subtitle">View Montly Expense</h3>
 
 <form class="form-inline">
 
@@ -43,7 +43,7 @@
     <p>@ViewBag.Message</p>
 </div>
 @{
-    if (ViewBag.IncomeList != null)
+    if (ViewBag.ExpenseList != null)
     {
         <div>
             <table class="table table-striped">
@@ -58,36 +58,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                        @{
-                            int i = 1;
-                            foreach (DataLibrary.BusinessModel.ViewModel.IncomeMonthlyView data in ViewBag.IncomeList)
-                            {
-                                <tr>
-                                    <th scope="row">@i</th>
-                                    <td>@data.Date.ToShortDateString()</td>
-                                    <td>@data.Amount</td>
-                                    @if (data.Cash)
-                                    {
-                                        <td>Cash</td>
-                                        <td>NA</td>
-                                    }
-                                    else if (data.Cheque)
-                                    {
-                                        <td>Cheque</td>
-                                        <td>@data.ChequeNo<br />@data.BankName</td>
-                                    }
-                                    <td>@data.Particular</td>
-                                </tr>
-                                i++;
-                            }
+                    @{
+                        int i = 1;
+                        foreach (DataLibrary.BusinessModel.ViewModel.ExpenseMonthlyView data in ViewBag.ExpenseList)
+                        {
+                            <tr>
+                                <th scope="row">@i</th>
+                                <td>@data.Date.ToShortDateString()</td>
+                                <td>@data.Amount</td>
+                                @if (data.Cash)
+                                {
+                                    <td>Cash</td>
+                                    <td>NA</td>
+                                }
+                                else if (data.Cheque)
+                                {
+                                    <td>Cheque</td>
+                                    <td>@data.ChequeNo<br />@data.BankName</td>
+                                }
+                                <td>@data.Particular</td>
+                            </tr>
+                            i++;
+                        }
                     }
                 </tbody>
             </table>
         </div>
     }
 }
-
-
-
-
 

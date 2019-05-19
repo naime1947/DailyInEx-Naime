@@ -55,6 +55,10 @@
     <Compile Include="BusinessModel\Country.cs" />
     <Compile Include="BusinessModel\Expense.cs" />
     <Compile Include="BusinessModel\Income.cs" />
+    <Compile Include="BusinessModel\Month.cs" />
+    <Compile Include="BusinessModel\ViewModel\ExpenseMonthlyView.cs" />
+    <Compile Include="BusinessModel\ViewModel\IncomeMonthlyView.cs" />
+    <Compile Include="BusinessModel\ViewModel\YearlyInExView.cs" />
     <Compile Include="DataAccess\SqlDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
