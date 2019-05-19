@@ -10,7 +10,15 @@
     <div class="form-group mb-4">
         <label class="col-form-label" for="year">Year</label>
         <select id="year" name="year" class="form-control" required>
-            <option selected value="">Choose...</option>
+
+            @if (ViewBag.Year != null)
+            {
+                <option selected value="@ViewBag.Year">@ViewBag.Year</option>
+            }
+            else
+            {
+                <option selected value="">Choose...</option>
+            }
             @foreach (int year in ViewBag.ListOfYear)
             {
                 <option name="year" value="@year">@year</option>
@@ -40,7 +48,7 @@
                         int i = 1;
                         double TotalIncome = 0;
                         double TotalExpense = 0;
-                        double TotalProfit =0;
+                        double TotalProfit = 0;
                         foreach (DataLibrary.BusinessModel.ViewModel.YearlyInExView data in ViewBag.Report)
                         {
                             <tr>
@@ -55,18 +63,22 @@
                             TotalExpense += data.MonthlyExpense;
                             TotalProfit += data.GetMonthlyProfit();
                         }
-                            <tr class="text-black-50">
-                                <td></td>
-                                <td style="text-align:center"> Total : </td>
-                                <td>@TotalIncome</td>
-                                <td>@TotalExpense</td>
-                                <td>@TotalProfit</td>
+                        <tr class="text-black-50">
+                            <td></td>
+                            <td style="text-align:center"> Total : </td>
+                            <td>@TotalIncome</td>
+                            <td>@TotalExpense</td>
+                            <td>@TotalProfit</td>
 
-                            </tr>
+                        </tr>
                     }
                 </tbody>
             </table>
         </div>
+        <div >
+            <a type="button" href="~/Report/YearlyPdf?year=@ViewBag.Year" class="btn btn-success">Generate Pdf</a>
+        </div>
+        
     }
 }
 

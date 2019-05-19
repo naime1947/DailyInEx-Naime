@@ -1,6 +1,8 @@
-﻿using DataLibrary.BusinessLogic;
+﻿
+using DataLibrary.BusinessLogic;
 using DataLibrary.BusinessModel;
 using DataLibrary.BusinessModel.ViewModel;
+using Rotativa;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,7 @@ namespace DailyInEx.Controllers
 {
     public class ReportController : Controller
     {
+
         // GET: Report
         public ActionResult Index()
         {
@@ -68,10 +71,31 @@ namespace DailyInEx.Controllers
             {
                 ViewBag.Message = "No data found";
             }
+            ViewBag.Year = year;
             ViewBag.ListOfYear = ReportProcessor.ListOfYear();
 
             return View();
         }
+        public ActionResult YearlyPdf(int? year)
+        {
+            if (year != null)
+            {
+                
+                return new ActionAsPdf("YearlyReportView") { FileName = "YearlyView.pdf" };
+            }
 
+            return RedirectToAction("YearlyReport");
+        }
+
+        public ActionResult YearlyReportView()
+        {
+            int? year = 2019;
+            List<YearlyInExView> yearlyReportList = ReportProcessor.GetYearlyInExRepot((int)year);
+            ViewBag.Report = yearlyReportList;
+            ViewBag.Year = year;
+
+
+            return View();
+        }
     }
 }
